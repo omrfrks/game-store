@@ -1,0 +1,11 @@
+<style>
+.search-input{
+  width: 25%
+}
+</style>
+<div class="flex-wrapper">
+  <h2 class="break">Game List</h2>
+  <input class="search-input" type="search" placeholder="search" [(ngModel)]="searchText"/>
+  <a class="right" routerLink="/new-game"><button class="button">New Game</button></a>
+  <game-list class="break" [searchText]="searchText"></game-list>
+</div>

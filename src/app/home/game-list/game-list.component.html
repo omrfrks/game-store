@@ -1,0 +1,16 @@
+<style>
+.empty-message{
+  color: #42187d;
+  text-align: center;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.33fr));
+  grid-gap: 10px;
+  align-items: center;
+}
+</style>
+<p class="empty-message" *ngIf="gameService.games.length===0;">no records found</p>
+<div class="grid" *ngIf="gameService.games.length>0;">
+<game-card *ngFor="let game of gameService.games | searchFilter: searchText" [game]="game"></game-card>
+</div>

@@ -1,0 +1,97 @@
+<style>
+  .input {
+    width: 100%;
+    margin-top: 2%;
+    height: 10vh;
+  }
+  .text-danger {
+    color: red;
+  }
+  .input-error {
+    border: 1px solid red;
+  }
+  .top-margin {
+    margin-top: 2%;
+  }
+</style>
+<header></header>
+<div class="flex-wrapper">
+  <h2 class="break">New Game</h2>
+  <form [formGroup]="newGameForm" (ngSubmit)="onSubmit()" class="full-width">
+    <input
+      [ngClass]="{
+        input: true,
+        'input-error': newGameForm.get('name')?.errors
+      }"
+      type="text"
+      placeholder="Game Name"
+      formControlName="name"
+      required
+    />
+    <small
+      class="text-danger"
+      *ngIf="newGameForm.get('name')?.hasError('required')"
+    >
+      This field is required.
+    </small>
+    <input
+      [ngClass]="{
+        input: true,
+        'input-error': newGameForm.get('bundle')?.errors
+      }"
+      type="text"
+      placeholder="Bundle"
+      formControlName="bundle"
+      required
+    />
+    <small
+      class="text-danger"
+      *ngIf="newGameForm.get('bundle')?.hasError('required')"
+    >
+      This field is required.
+    </small>
+    <small
+      class="text-danger"
+      *ngIf="newGameForm.get('bundle')?.hasError('pattern')"
+    >
+      bundle is not valid
+    </small>
+    <input
+      [ngClass]="{
+        input: true,
+        'input-error': newGameForm.get('owner')?.errors
+      }"
+      type="email"
+      placeholder="Owner"
+      formControlName="owner"
+      required
+      email
+    />
+    <small
+      class="text-danger"
+      *ngIf="newGameForm.get('owner')?.hasError('required')"
+    >
+      This field is required.
+    </small>
+    <small
+      class="text-danger"
+      *ngIf="newGameForm.get('owner')?.hasError('email')"
+    >
+      email is not valid
+    </small>
+    <div class="flex-wrapper top-margin">
+      <input
+        type="file"
+        (change)="onSelect($event)"
+        required
+      />
+      <button
+        class="button right"
+        type="submit"
+        [disabled]="newGameForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

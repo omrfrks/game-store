@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+.break {
+  flex-basis: 100%;
+}
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.full-width {
+  flex-basis: 100%;
+}
+.right {
+  margin-left: auto;
+}
+.button {
+  cursor: pointer;
+  border-radius: 15px;
+  color: white;
+  background-color: #50d5ad;
+  font-size: 1.2em;
+  padding: 20px;
+  border: none;
+}
+.button[disabled] {
+  cursor: default;
+  background-color: #c2c8c8;
+}
+.top {
+  margin-bottom: 20px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f0f0f0;
+}

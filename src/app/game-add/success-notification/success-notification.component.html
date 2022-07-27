@@ -1,0 +1,38 @@
+<style>
+  .notification {
+    background-color: #4ea351;
+    color: white;
+    padding: 10px;
+    width: 21%;
+    -webkit-box-shadow: 10px 10px 33px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 33px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 33px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    position: absolute;
+    top: 5%;
+    right: 2%;
+  }
+  .grid {
+    display: grid;
+    grid-template-areas:
+      "icon header"
+      "icon desc";
+    grid-template-rows: 30px 50px;
+  }
+  .icon {
+    grid-area: icon;
+    align-self: center;
+    justify-self: center;
+  }
+  .header {
+    grid-area: header;
+  }
+  .desc {
+    grid-area: desc;
+  }
+</style>
+<div class="notification grid">
+  <mat-icon class="icon">check</mat-icon>
+  <h3 class="header">success</h3>
+  <p class="desc">game created succesfully!</p>
+</div>
